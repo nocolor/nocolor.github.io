@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="序言我做这篇文章，不是意图矫揉造作，故弄玄虚。 造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。 记得候捷先生为《C++设计新思维》中所做的译序中所言^1，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“">
+<meta name="description" content="序言我做这篇文章，不是意图矫揉造作，故弄玄虚。 造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。 记得候捷先生为《C++设计新思维》中所做的译序中所言1，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“不">
 <meta name="keywords" content="C++模板,向量,索引混合,swizzle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个带有swizzle（索引混合）的向量模板类型（一）">
 <meta property="og:url" content="http://yoursite.com/2019/02/12/vec-swizzle-01/index.html">
 <meta property="og:site_name" content="轮匠">
-<meta property="og:description" content="序言我做这篇文章，不是意图矫揉造作，故弄玄虚。 造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。 记得候捷先生为《C++设计新思维》中所做的译序中所言^1，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“">
+<meta property="og:description" content="序言我做这篇文章，不是意图矫揉造作，故弄玄虚。 造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。 记得候捷先生为《C++设计新思维》中所做的译序中所言1，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“不">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/02/12/vec-swizzle-01/vectors.png">
-<meta property="og:updated_time" content="2019-02-13T08:36:01.191Z">
+<meta property="og:updated_time" content="2019-02-13T10:09:11.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个带有swizzle（索引混合）的向量模板类型（一）">
-<meta name="twitter:description" content="序言我做这篇文章，不是意图矫揉造作，故弄玄虚。 造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。 记得候捷先生为《C++设计新思维》中所做的译序中所言^1，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“">
+<meta name="twitter:description" content="序言我做这篇文章，不是意图矫揉造作，故弄玄虚。 造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。 记得候捷先生为《C++设计新思维》中所做的译序中所言1，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“不">
 <meta name="twitter:image" content="http://yoursite.com/2019/02/12/vec-swizzle-01/vectors.png">
 
 
@@ -304,22 +304,22 @@
       
         <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>我做这篇文章，不是意图矫揉造作，故弄玄虚。</p>
 <p>造轮，如果你乐意，叫它雅趣也可以。只是枯燥编码生活中的一叶小舟，本不是用来渡江过海的，因而写起这些代码来竟轻松了许多。既无需考量实用价值，也不必纠结所谓广义的范性，放开了去思考，反而算是一种休闲了。</p>
-<p>记得候捷先生为《C++设计新思维》中所做的译序中所言<a href="原话是：“……很多人的焦虑是：我这么学这么做这么写这么用，同侪大概看不懂吧，大概跟不上吧。此固值得关注，但个人的成长千万别被群体的惯性绊住脚步。”">^1</a>，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“不实用”的技术，比如实现了基于模板的swizzle、向量间的自动类型提升和隐式转换等等。你大概会被这些花里胡哨的技术搞的晕头转向——那就对了，这说明我们还能忆起“世界之大”这个训诫，而不是靠着吹嘘几款上线产品就自筑高台，自诩高瞻远瞩、入木三分。</p>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><h2 id="复习初中数学知识"><a href="#复习初中数学知识" class="headerlink" title="复习初中数学知识"></a>复习初中数学知识</h2><p>你会来阅读这篇文章，代表你肯定知道什么是矢量（Vector）。在C++里面有个向量（Vector），std中提供的vector是一种范型容器。我习惯用术语“矢量”代表数学上的那个概念，用“向量”表示程序设计里面常用的容器。不过术语“标量”就没有这么幸运了，数学上说的标量和C++里面的标量不是同一种概念<a href="C++范型编程中，也有一个术语叫做标量（Scalar），C++11中提供了一个范型模板std::is_scalar，可以用于断定一种类型是否属于Scalar。你可以自行搜索这个概念。">^2</a>（尽管它们有些相似），但我找不到合适的词来区分它们。鉴于C++编程中较少区分标量这个概念，在这篇文章中，除非特别说明，否则说道标量时，都是指的数学概念上的标量。</p>
-<p>矢量通常代表一个方向，同时它也有大小（模）。说得更学术一些，用齐次坐标来表示时，如果$w$分量是0，那么它表示一个方向，$w$分量是1，它表示一个顶点<a href="这么说有些笼统，但你可以自行查阅齐次坐标的定义，并得到这个推论。自然，”顶点“这个概念本身不是适量。">^3</a>。如果你接触过图形学基础，你应该知道笛卡尔坐标系，请看下图：</p>
+<p>记得候捷先生为《C++设计新思维》中所做的译序中所言<sup><a href="#fn_1" id="reffn_1">1</a></sup>，不必为群体的惯性绊住脚步，我也毕恭毕敬地效仿一回：我所实作的这套向量的代码，基于一些生僻而且“不实用”的技术，比如实现了基于模板的swizzle、向量间的自动类型提升和隐式转换等等。你大概会被这些花里胡哨的技术搞的晕头转向——那就对了，这说明我们还能忆起“世界之大”这个训诫，而不是靠着吹嘘几款上线产品就自筑高台，自诩高瞻远瞩、入木三分。</p>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><h2 id="复习初中数学知识"><a href="#复习初中数学知识" class="headerlink" title="复习初中数学知识"></a>复习初中数学知识</h2><p>你会来阅读这篇文章，代表你肯定知道什么是矢量（Vector）。在C++里面有个向量（Vector），std中提供的vector是一种范型容器。我习惯用术语“矢量”代表数学上的那个概念，用“向量”表示程序设计里面常用的容器。不过术语“标量”就没有这么幸运了，数学上说的标量和C++里面的标量不是同一种概念<sup><a href="#fn_2" id="reffn_2">2</a></sup>（尽管它们有些相似），但我找不到合适的词来区分它们。鉴于C++编程中较少区分标量这个概念，在这篇文章中，除非特别说明，否则说道标量时，都是指的数学概念上的标量。</p>
+<p>矢量通常代表一个方向，同时它也有大小（模）。说得更学术一些，用齐次坐标来表示时，如果$w$分量是0，那么它表示一个方向，$w$分量是1，它表示一个顶点<sup><a href="#fn_3" id="reffn_3">3</a></sup>。如果你接触过图形学基础，你应该知道笛卡尔坐标系，请看下图<sup><a href="#fn_4" id="reffn_4">4</a></sup>：</p>
 <img src="/2019/02/12/vec-swizzle-01/vectors.png" title="图1-1">
-<font size="2">图1-1<a href="参考图片来自[LearnOpenGL](https://learnopengl.com/Getting-started/Transformations)，这个网站里有很多关于向量的基础知识。">^4</a>. 矢量可以表示方向，$\vec v$和$\vec w$表示同样的方向，数学意义上，它们是相等的。$\vec n$则表示一个和$x$轴平行的方向。</font>
+<font size="2">图1-1. 矢量可以表示方向，$\vec v$和$\vec w$表示同样的方向，数学意义上，它们是相等的。$\vec n$则表示一个和$x$轴平行的方向。</font>
 
-<hr>
+
 <p>以$\vec v$为例，它是一个2维矢量，你可以将它写成一个一列两行的行列式：</p>
-<p>$$<br>\vec v = \begin{pmatrix} 3\2 \end{pmatrix}<br>$$</p>
-<p>自然，在3D笛卡尔坐标中，矢量包含$(x,y,z)$三个分量：</p>
-<p>$$<br>\vec v = \begin{pmatrix} x\y\z\ \end{pmatrix}<br>$$</p>
-<p>矢量可以参与运算，例如乘以一个数，或者加减另一个向量。矢量之间可以进行特有的运算，比如求点积，3D矢量之间可以求叉积。矢量还可以求模，或者进行归一化。</p>
+<script type="math/tex; mode=display">
+\vec v = \begin{pmatrix} 3\\2 \end{pmatrix}</script><p>自然，在3D笛卡尔坐标中，矢量包含$(x,y,z)$三个分量：</p>
+<script type="math/tex; mode=display">
+\vec v = \begin{pmatrix} x\\y\\z\\ \end{pmatrix}</script><p>矢量可以参与运算，例如乘以一个数，或者加减另一个向量。矢量之间可以进行特有的运算，比如求点积，3D矢量之间可以求叉积。矢量还可以求模，或者进行归一化。</p>
 <p>以上提到的内容我不打算在这里一一解释或论证，毕竟我的初衷不是谈论数学。但我想有了这些简单的介绍，读者应该能够想象如何用编程语言去设计矢量类型了。</p>
 <h2 id="简单的Vec2f实现"><a href="#简单的Vec2f实现" class="headerlink" title="简单的Vec2f实现"></a>简单的Vec2f实现</h2><p>可以使用一个class或者struct来设计一个Vec类型。简便起见，我们用2D矢量举例，下面的C++代码应该一目了然：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">struct Vec2f</span><br><span class="line">&#123;</span><br><span class="line">    float x&#123;0.f&#125;;</span><br><span class="line">    float y&#123;0.f&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Vec2f v;</span><br><span class="line">    </span><br><span class="line">    v.x = 3.f;</span><br><span class="line">    v.y = 2.f;</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; &quot;v = &quot; &lt;&lt; &quot;(&quot; &lt;&lt; v.x &lt;&lt; &quot;, &quot; &lt;&lt; v.y &lt;&lt; &quot;)&quot; &lt;&lt; std::endl;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运用封装的威力，我们将$\begin{pmatrix} 3\2 \end{pmatrix}$作为一个整体（Vec2f）来处理，类的命名很直观地告诉客户：此乃两个float组成的向量（注意，我用的是向量而不是矢量，这说明从编程角度来说，我们更乐意将它看成容器，而不是数学概念）。</p>
+<p>运用封装的威力，我们将$\begin{pmatrix} 3\\2 \end{pmatrix}$作为一个整体（Vec2f）来处理，类的命名很直观地告诉客户：此乃两个float组成的向量（注意，我用的是向量而不是矢量，这说明从编程角度来说，我们更乐意将它看成容器，而不是数学概念）。</p>
 <h2 id="OpenGL和GLSL"><a href="#OpenGL和GLSL" class="headerlink" title="OpenGL和GLSL"></a>OpenGL和GLSL</h2><p>在考虑向Vec2f中加入运算子重载和提供更多接口之前，不妨聊一点计算机图形学的话题。</p>
 <p>矢量和矩阵是计算机图形学中最基础的数学工具，我想谁也无法反驳这句话。撇去微软和科纳斯组织（Khronos）在上个世纪末期的那段故事，至少在图形图像领域的数学工具上，他们没有分歧。</p>
 <p>假使你对OpenGL有些了解，你会知道OpenGL3.0之后加入了“可编程管线”的概念，可以让程序员编写一些运行在GPU上的小型程序，那些程序一般叫做“着色器（Shader）”。前者是一个应用相当广泛的计算机图形API，只要在和计算机图形图像相关的领域，你几乎都能发现OpenGL的身影。</p>
@@ -327,20 +327,44 @@
 <p>讨论OpenGL和图形学基础超出了本文的范畴，但是我对向量的实作却得仰仗GLSL中的一个概念：索引混合（Swizzling）。如果我大费周章写了这么多文字，仅仅是实现一个Vec2f，那就太令人失望了。</p>
 <p>一段典型的GLSL代码看起来像这样：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//这是版本声明</span><br><span class="line">#version version_number</span><br><span class="line"></span><br><span class="line">//在这里声明一些变量，这些变量或来自CPU，或来自图形管线的上一个阶段</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    vec2 vect           = vec2(0.5, 0.7);           //定义一个2D向量</span><br><span class="line">    vec3 result         = vec4(vect, 0.0);          //定义一个3D向量</span><br><span class="line">    vec4 otherResult    = vec4(result.xyz, 1.0);    //定义一个4D向量</span><br><span class="line">    </span><br><span class="line">    //将结果输出到管线的下一个阶段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果单说vec2、vec3和vec4，你应该能类比到Vec2f这样的实现。但是注意到对otherResult的初始化中，出现了result.xyz这样的表达式，这就是索引混合<a href="事实上，GLSL的“向量”本身也是容器，而不是单指数学意义上的“矢量”，例如vec3不仅可以表示方向，它也可以表示颜色，除去v.xyz这种写法，你还可以使用v.rgb来表示一个颜色的红、绿、蓝分量。">^5</a>。</p>
+<p>如果单说vec2、vec3和vec4，你应该能类比到Vec2f这样的实现。但是注意到对otherResult的初始化中，出现了result.xyz这样的表达式，这就是索引混合<sup><a href="#fn_5" id="reffn_5">5</a></sup>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//不难想象出，单是Vec2f，就有下面这些Swizzle：</span><br><span class="line"></span><br><span class="line">Vec2f   v(1.f, 2.f);</span><br><span class="line"></span><br><span class="line">v.x;        //1</span><br><span class="line">v.y;        //2</span><br><span class="line">v.xy;       //(1,2)</span><br><span class="line">v.yx;       //(2,1)</span><br><span class="line">v.xx;       //(1,1)</span><br><span class="line">v.yy;       //(2,2)</span><br><span class="line"></span><br><span class="line">v.xxx;      //(1,1,1)</span><br><span class="line">v.xxy;      //(1,1,2)</span><br><span class="line">v.xyx;      //(1,2,1)</span><br><span class="line">v.xyy;      //(1,2,2)</span><br><span class="line">//...</span><br><span class="line">v.yyy;      //(2,2,2)</span><br><span class="line"></span><br><span class="line">v.xxxx;     </span><br><span class="line">v.xxxy;</span><br><span class="line">//...</span><br><span class="line">v.yyyy;</span><br></pre></td></tr></table></figure>
 <p>我所见过的大多数向量实作，都没有提供这样的访问分量的方法。这一条，或许足够令很多人心生疑虑：如果索引混合真的那么重要，为什么大多数实现都不提供呢？</p>
-<p>这种疑问是有理由的，GLSL是专为GPU设计的编程语言，它从底层提供这样的语法，就像我们取地址或者提领指针一样自然地去操作向量和矩阵。而要把这种便捷的访问方式交给C++这种程序设计语言，却没有哪个编译器愿意大费周折，提供这样的语法——而封装和继承确有代价<a href="确切地说，如果不考虑编译的效率，给C++运行时带来的开销多数是来自多态，而不是继承本身。另一方面，对象的构造函数和复制构造、赋值操作等等也会带来一些额外的函数开销，除非你的类型是POD。">^6</a>。</p>
-<p>不过这种微妙的哲学问题不是我所关注的重点<a href="不要徘徊迷失在编程世界的灵缚狱中。">^7</a>，我单说，假使了又假使，到底如何去实作一个具有Swizzling能力的向量呢？问得更直白一些：C++能办到吗？</p>
+<p>这种疑问是有理由的，GLSL是专为GPU设计的编程语言，它从底层提供这样的语法，就像我们取地址或者提领指针一样自然地去操作向量和矩阵。而要把这种便捷的访问方式交给C++这种程序设计语言，却没有哪个编译器愿意大费周折，提供这样的语法——而封装和继承确有代价<sup><a href="#fn_6" id="reffn_6">6</a></sup>。</p>
+<p>不过这种微妙的哲学问题不是我所关注的重点<sup><a href="#fn_7" id="reffn_7">7</a></sup>，我单说，假使了又假使，到底如何去实作一个具有Swizzling能力的向量呢？问得更直白一些：C++能办到吗？</p>
 <p>答案是：可以。</p>
 <p>我会在之后的文章中同你聊细节。</p>
 <h2 id="GLM"><a href="#GLM" class="headerlink" title="GLM"></a>GLM</h2><p>有一个词在你脑子里来回旋转，兴许你已经查过资料了：大名鼎鼎的glm。</p>
 <p>glm是OpenGL Mathematics的缩写，“混合索引”的内容正是剽窃自这个库（至少大部分是）。诚然，我所谓的造轮只不过是将glm中的代码扒出来，改一改，套了层自己的皮。我竟不以为然——还洋洋洒洒地写下这文章，可真是无耻极了，好在我无意索取积分，否则 真是要下跪谢罪，方可罢休。</p>
 <p>我想，你愿意自己去万行代码中考察蛛丝马迹，作为考癖者，自然也是极好的。</p>
 <p>我自有我的一些创新，至于够不够“健壮”，便不得而知了。</p>
-<p>glm本身并未启用混合索引的机制，它内部用一条宏屏蔽了相关的实现。我只能猜测是出于性能或者别的什么原因，然而这倒是不影响我敬佩Christophe Riccio<a href="glm/detail/_swizzle.hpp的作者。">^8</a>的创造力。</p>
+<p>glm本身并未启用混合索引的机制，它内部用一条宏屏蔽了相关的实现。我只能猜测是出于性能或者别的什么原因，然而这倒是不影响我敬佩Christophe Riccio<sup><a href="#fn_8" id="reffn_8">8</a></sup>的创造力。</p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>现在你大致知道“轮子”的外貌了，不论如何，这个主题还算有趣，对罢？</p>
 <p>这已然足够，之后我想着聊聊代码，同去。</p>
+<blockquote id="fn_1">
+<sup>1</sup>. 原话是：“……很多人的焦虑是：我这么学这么做这么写这么用，同侪大概看不懂吧，大概跟不上吧。此固值得关注，但个人的成长千万别被群体的惯性绊住脚步。”<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. C++范型编程中，也有一个术语叫做标量（Scalar），C++11中提供了一个范型模板std::is_scalar，可以用于断定一种类型是否属于Scalar。你可以自行搜索这个概念。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. 这么说有些笼统，但你可以自行查阅齐次坐标的定义，并得到这个推论。自然，”顶点“这个概念本身不是适量。<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_4">
+<sup>4</sup>. 参考图片来自<a href="https://learnopengl.com/Getting-started/Transformations" target="_blank" rel="noopener">LearnOpenGL</a>，这个网站里有很多关于向量的基础知识。<a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. 事实上，GLSL的“向量”本身也是容器，而不是单指数学意义上的“矢量”，例如vec3不仅可以表示方向，它也可以表示颜色，除去v.xyz这种写法，你还可以使用v.rgb来表示一个颜色的红、绿、蓝分量。<a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_6">
+<sup>6</sup>. 确切地说，如果不考虑编译的效率，给C++运行时带来的开销多数是来自多态，而不是继承本身。另一方面，对象的构造函数和复制构造、赋值操作等等也会带来一些额外的函数开销，除非你的类型是POD。<a href="#reffn_6" title="Jump back to footnote [6] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_7">
+<sup>7</sup>. 不要徘徊迷失在编程世界的灵缚狱中。<a href="#reffn_7" title="Jump back to footnote [7] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_8">
+<sup>8</sup>. glm/detail/_swizzle.hpp的作者。<a href="#reffn_8" title="Jump back to footnote [8] in the text."> &#8617;</a>
+</blockquote>
 
       
     </div>
